@@ -1,0 +1,204 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background-color:#ffffff;
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    border-bottom:1px solid #ddd;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#1dbf73;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#1dbf73;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.signin-btn{
+    padding:10px 20px;
+    border:1px solid #1dbf73;
+    background:white;
+    color:#1dbf73;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.join-btn{
+    padding:10px 20px;
+    background:#1dbf73;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* Intro Section */
+.intro{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px;
+}
+
+.intro-content{
+    width:50%;
+}
+
+.intro-content h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.intro-content p{
+    font-size:20px;
+    color:#555;
+    margin-bottom:30px;
+}
+
+/* Search Box */
+.search-box{
+    display:flex;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:400px;
+    padding:15px;
+    border:1px solid #ccc;
+}
+
+.search-box button{
+    padding:15px 25px;
+    border:none;
+    background:#1dbf73;
+    color:white;
+    cursor:pointer;
+}
+
+/* Intro Buttons */
+.intro-btns{
+    display:flex;
+    gap:20px;
+}
+
+.get-started{
+    padding:15px 25px;
+    background:#1dbf73;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+.learn-more{
+    padding:15px 25px;
+    background:white;
+    border:1px solid #1dbf73;
+    color:#1dbf73;
+    border-radius:5px;
+}
+
+/* Intro Image */
+.intro-image img{
+    width:550px;
+    border-radius:10px;
+}
+
+/* Categories */
+.categories{
+    padding:50px 80px;
+}
+
+.categories h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.category-container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    width:220px;
+    padding:30px;
+    text-align:center;
+    background:#f5f5f5;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* Footer */
+.footer{
+    background:#111827;
+    padding:60px 80px;
+    margin-top:80px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:40px;
+}
+
+.footer-column h3{
+    color:#F59E0B;
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+.footer-column{
+    display:flex;
+    flex-direction:column;
+}
+
+.footer-column a{
+    text-decoration:none;
+    color:#E5E7EB;
+    margin-bottom:12px;
+    transition:0.3s;
+}
+
+.footer-column a:hover{
+    color:#F59E0B;
+    padding-left:5px;
+}
