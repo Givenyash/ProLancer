@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial,sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            overflow: hidden;
+            background-image: linear-gradient(
+                rgba(0,0,0,0.6),
+                rgba(0,0,0,0.6)
+            ),
+            url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .choice-container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .choice-box{
+            width: 500px;
+            background: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 15px;
+        }
+        .choice-box h1{
+            margin-bottom: 15px;
+        }
+        .choice-box p{
+            margin-bottom: 30px;
+        }
+
+        .seller-btn, .client-btn{
+            width: 100%;
+            padding: 18px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .seller-btn{
+            background: #1dbf73;
+            color: white;
+        }
+        .client-btn{
+            background: #111827;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="choice-container">
+        <div class="choice-box">
+            <h1>Join ProLancer</h1>
+            <p>Select how you want to continue</p>
+            <button class="seller-btn">
+                Become a Seller
+            </button>
+
+            <button class="client-btn">
+                Become a Client
+            </button>
+        </div>
+    </div>
+</body>
+</html>
