@@ -1,7 +1,7 @@
 function goToSignIn(){
-    window.location.href = "signin.html";
+    window.location.href = "4_sign_in.html";
 }
 
 function goToJoin(){
-    window.location.href = "join.html";
+    window.location.href = "5_join.html";
 }
