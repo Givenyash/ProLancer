@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Seller Profile | ProLancer</title>
+    <link rel="stylesheet" href="9_create_seller_profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i>
+            ProLancer
+        </div>
+
+        <div class="progress-container">
+            <p>Step 4 of 4</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Form -->
+    <section class="profile">
+
+        <div class="profile-box">
+            <h1>Create Your Seller Profile</h1>
+            <p>
+                Complete your profile to start receiving projects.
+            </p>
+
+
+            <!-- Profile -->
+            <div class="profile-image">
+                <i class="fa-solid fa-user"></i>
+                <button type="button">
+                    Upload Photo
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Professional Title</label>
+                    <input type="text" placeholder="Frontend Developer">
+                </div>
+
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" placeholder="India">
+                </div>
+
+                <div class="form-group">
+                    <label>Experience</label>
+                    <select>
+                        <option>Fresher</option>
+                        <option>1-2 Years</option>
+                        <option>3-5 Years</option>
+                        <option>5+ Years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Skills</label>
+                    <input type="text" placeholder="HTML, CSS, JavaScript">
+                </div>
+
+                <div class="form-group">
+                    <label>Portfolio</label>
+                    <input type="url" placeholder="Portfolio URL">
+                </div>
+
+                <div class="form-group">
+                    <label>LinkedIn</label>
+                    <input type="url" placeholder="LinkedIn Profile">
+                </div>
+
+                <div class="form-group">
+                    <label>Professional Bio</label>
+                    <textarea rows="5" placeholder="Tell clients about yourself..."></textarea>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+    <!--Button-->
+    <section class="buttons">
+        <button class="back-btn" onclick="goBack()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <button class="finish-btn" onclick="finishSetup()">
+            Finish Setup
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </section>
+
+    <script src="9_create_seller_profile.js"></script>
+</body>
+</html>
