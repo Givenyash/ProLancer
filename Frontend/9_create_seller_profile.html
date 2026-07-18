@@ -46,25 +46,25 @@
             </div>
 
             <!-- Form -->
-            <form>
+            <form onsubmit="return false;">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" placeholder="Enter your full name">
+                    <input type="text" id="fullName" placeholder="Enter your full name">
                 </div>
 
                 <div class="form-group">
                     <label>Professional Title</label>
-                    <input type="text" placeholder="Frontend Developer">
+                    <input type="text" id="title" placeholder="Frontend Developer">
                 </div>
 
                 <div class="form-group">
                     <label>Country</label>
-                    <input type="text" placeholder="India">
+                    <input type="text" id="country" placeholder="India">
                 </div>
 
                 <div class="form-group">
                     <label>Experience</label>
-                    <select>
+                    <select id="experience">
                         <option>Fresher</option>
                         <option>1-2 Years</option>
                         <option>3-5 Years</option>
@@ -74,22 +74,22 @@
 
                 <div class="form-group">
                     <label>Skills</label>
-                    <input type="text" placeholder="HTML, CSS, JavaScript">
+                    <input type="text" id="skills" placeholder="HTML, CSS, JavaScript">
                 </div>
 
                 <div class="form-group">
                     <label>Portfolio</label>
-                    <input type="url" placeholder="Portfolio URL">
+                    <input type="url" id="portfolio" placeholder="Portfolio URL">
                 </div>
 
                 <div class="form-group">
                     <label>LinkedIn</label>
-                    <input type="url" placeholder="LinkedIn Profile">
+                    <input type="url" id="linkedin" placeholder="LinkedIn Profile">
                 </div>
 
                 <div class="form-group">
                     <label>Professional Bio</label>
-                    <textarea rows="5" placeholder="Tell clients about yourself..."></textarea>
+                    <textarea rows="5" id="bio" placeholder="Tell clients about yourself..."></textarea>
                 </div>
             </form>
 
