@@ -65,7 +65,6 @@ async function registerUser(e) {
     console.log(data);
 
     if (data.success) {
-
       // Save user data in Local Storage
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.user.id);
@@ -81,11 +80,14 @@ async function registerUser(e) {
         </div>`;
 
       setTimeout(() => {
-        window.location.href = "6_profile_overview.html";
+        if (role === "seller") {
+          window.location.href = "6_profile_overview.html";
+        } else {
+          window.location.href = "10_create_client_profile.html";
+        }
       }, 1500);
-
-    }
-    else {
+      
+    } else {
       message.innerHTML = `
             <div class="alert alert-danger">
                 ${data.message}
@@ -96,7 +98,6 @@ async function registerUser(e) {
     message.innerHTML = `
         <div class="alert alert-danger">
             Server Error
-        </div>
-        `;
+        </div>`;
   }
 }
