@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Client Profile | ProLancer</title>
+
+    <link rel="stylesheet" href="11_create_client_profile.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i>
+            ProLancer
+        </div>
+
+    </nav>
+
+    <!-- Main Section -->
+
+    <section class="profile">
+
+        <div class="profile-box">
+
+            <h1>Create Your Client Profile</h1>
+
+            <p>
+                Tell freelancers a little about yourself and your company.
+            </p>
+
+            <form>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" id="company" placeholder="ABC Pvt Ltd">
+                </div>
+
+                <div class="form-group">
+                    <label>Industry</label>
+                    <input type="text" id="industry" placeholder="IT Services">
+                </div>
+
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" id="country" placeholder="India">
+                </div>
+
+                <div class="form-group last">
+                    <label>About</label>
+
+                    <textarea id="about"
+                        placeholder="Describe your company or project..."
+                        rows="5"></textarea>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Buttons -->
+
+    <section class="buttons">
+
+        <button class="back-btn" onclick="goBack()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <button class="finish-btn" onclick="finishSetup()">
+            Continue
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+    </section>
+
+    <script src="11_create_client_profile.js"></script>
+
+</body>
+
+</html>
