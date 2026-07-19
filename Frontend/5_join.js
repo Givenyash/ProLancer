@@ -1,7 +1,19 @@
-function goToProfileOverview(){
-    window.location.href = "6_profile_overview.html"
+function goToRegister(role) {
+
+    localStorage.setItem("role", role);
+
+    window.location.href = "4.1_registration.html";
+
 }
 
-function goToClient(){
-    alrert("Client module will be developed later.")
+function goToSeller() {
+
+    goToRegister("seller");
+
+}
+
+function goToClient() {
+
+    goToRegister("client");
+
 }
