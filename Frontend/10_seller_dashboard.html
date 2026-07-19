@@ -1,457 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Seller Dashboard | ProLancer</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="10_seller_dashboard.css">
-</head>
+    <link rel="stylesheet" href="10_seller_dashboard.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- ================= NAVBAR ================= -->
 
     <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold logo" href="#">
+          Pro<span>Lancer</span>
+        </a>
 
-        <div class="container">
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <a class="navbar-brand fw-bold logo" href="#">
-                Pro<span>Lancer</span>
-            </a>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <!-- Search -->
 
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-                <span class="navbar-toggler-icon"></span>
+          <form class="d-flex mx-auto search-form">
+            <input
+              class="form-control search-input"
+              type="search"
+              placeholder="Search services, projects..."
+            />
+
+            <button class="btn btn-success ms-2">
+              <i class="bi bi-search"></i>
             </button>
+          </form>
 
-            <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Explore</a>
+            </li>
 
-                <!-- Search -->
+            <li class="nav-item">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
 
-                <form class="d-flex mx-auto search-form">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Messages</a>
+            </li>
 
-                    <input class="form-control search-input"
-                        type="search"
-                        placeholder="Search services, projects...">
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="#">
+                <i class="bi bi-bell fs-5"></i>
+                <span class="notification-dot"></span>
+              </a>
+            </li>
 
-                    <button class="btn btn-success ms-2">
-                        <i class="bi bi-search"></i>
-                    </button>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="image_landing_page/profile.jpg"
+                  class="profile-image"
+                />
 
-                </form>
+                Yash
+              </a>
 
-                <ul class="navbar-nav ms-auto align-items-center">
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Explore</a>
-                    </li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
-                    </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Messages</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="#">
-                            <i class="bi bi-bell fs-5"></i>
-                            <span class="notification-dot"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown">
-
-                            <img src="image_landing_page/profile.jpg"
-                                class="profile-image">
-
-                            Yash
-
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-menu-end">
-
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
+                <li>
+                  <a class="dropdown-item text-danger" href="#">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-
+      </div>
     </nav>
 
     <!-- ================= MAIN CONTENT ================= -->
 
     <div class="container py-4">
+      <div class="row">
+        <!-- LEFT SECTION -->
 
-        <div class="row">
+        <div class="col-lg-8">
+          <!-- Welcome -->
 
-            <!-- LEFT SECTION -->
+          <div class="welcome-card mb-4">
+            <h2 id="greetingText">Welcome Back 👋</h2>
 
-            <div class="col-lg-8">
+            <p>Find projects that match your skills and start earning today.</p>
+          </div>
 
-                <!-- Welcome -->
+          <!-- Quick Actions -->
 
-                <div class="welcome-card mb-4">
+          <h4 class="section-title">Quick Actions</h4>
 
-                    <h2 id="greetingText">
-                        Welcome Back 👋
-                    </h2>
+          <div class="row g-3 mb-5">
+            <div class="col-md-6">
+              <div class="quick-card" id="createGig">
+                <i class="bi bi-plus-circle"></i>
 
-                    <p>
-                        Find projects that match your skills and start earning today.
-                    </p>
+                <h5>Create New Gig</h5>
 
-                </div>
-
-                <!-- Quick Actions -->
-
-                <h4 class="section-title">
-                    Quick Actions
-                </h4>
-
-                <div class="row g-3 mb-5">
-
-                    <div class="col-md-6">
-
-                        <div class="quick-card" id="createGig">
-
-                            <i class="bi bi-plus-circle"></i>
-
-                            <h5>Create New Gig</h5>
-
-                            <p>Create a new service and start selling.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="quick-card">
-
-                            <i class="bi bi-grid"></i>
-
-                            <h5>Manage Gigs</h5>
-
-                            <p>Edit your existing services.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="quick-card">
-
-                            <i class="bi bi-bag-check"></i>
-
-                            <h5>Orders</h5>
-
-                            <p>Track your current orders.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="quick-card">
-
-                            <i class="bi bi-chat-dots"></i>
-
-                            <h5>Messages</h5>
-
-                            <p>Reply to your clients.</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Recommended Projects -->
-
-                <div class="d-flex justify-content-between align-items-center">
-
-                    <h4 class="section-title">
-                        Recommended Projects
-                    </h4>
-
-                    <a href="#">View All</a>
-
-                </div>
-
-                <div class="row g-3 mb-5">
-
-                    <!-- Card -->
-
-                    <div class="col-md-6">
-
-                        <div class="project-card">
-
-                            <span class="badge bg-success">
-                                Web Development
-                            </span>
-
-                            <h5 class="mt-3">
-                                MERN Stack Website
-                            </h5>
-
-                            <p>
-                                Looking for an experienced MERN developer.
-                            </p>
-
-                            <div class="d-flex justify-content-between">
-
-                                <strong>₹18,000</strong>
-
-                                <button class="btn btn-success btn-sm">
-                                    Apply
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="project-card">
-
-                            <span class="badge bg-primary">
-                                AI
-                            </span>
-
-                            <h5 class="mt-3">
-                                Chatbot Development
-                            </h5>
-
-                            <p>
-                                Need an AI chatbot for customer support.
-                            </p>
-
-                            <div class="d-flex justify-content-between">
-
-                                <strong>₹25,000</strong>
-
-                                <button class="btn btn-success btn-sm">
-                                    Apply
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Categories -->
-
-                <h4 class="section-title">
-                    Popular Categories
-                </h4>
-
-                <div class="category-container mb-5">
-
-                    <button class="btn btn-outline-success">Web Development</button>
-
-                    <button class="btn btn-outline-success">Graphic Design</button>
-
-                    <button class="btn btn-outline-success">Video Editing</button>
-
-                    <button class="btn btn-outline-success">AI Services</button>
-
-                    <button class="btn btn-outline-success">Content Writing</button>
-
-                    <button class="btn btn-outline-success">Marketing</button>
-
-                </div>
-
-                <!-- Orders -->
-
-                <h4 class="section-title">
-                    Recent Orders
-                </h4>
-
-                <div class="table-responsive">
-
-                    <table class="table table-hover">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Project</th>
-
-                                <th>Client</th>
-
-                                <th>Status</th>
-
-                                <th>Amount</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>E-Commerce Website</td>
-
-                                <td>Rahul</td>
-
-                                <td>
-                                    <span class="badge bg-warning text-dark">
-                                        In Progress
-                                    </span>
-                                </td>
-
-                                <td>₹15,000</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Portfolio Website</td>
-
-                                <td>Aman</td>
-
-                                <td>
-                                    <span class="badge bg-success">
-                                        Completed
-                                    </span>
-                                </td>
-
-                                <td>₹8,000</td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
+                <p>Create a new service and start selling.</p>
+              </div>
             </div>
 
-            <!-- RIGHT SIDEBAR -->
+            <div class="col-md-6">
+              <div class="quick-card">
+                <i class="bi bi-grid"></i>
 
-            <div class="col-lg-4">
+                <h5>Manage Gigs</h5>
 
-                <!-- Profile Progress -->
-
-                <div class="profile-card mb-4">
-
-                    <h5>
-                        Profile Completion
-                    </h5>
-
-                    <h2>
-                        80%
-                    </h2>
-
-                    <div class="progress mb-3">
-
-                        <div class="progress-bar bg-success"
-                            style="width:80%;">
-                        </div>
-
-                    </div>
-
-                    <button class="btn btn-success w-100">
-                        Complete Profile
-                    </button>
-
-                </div>
-
-                <!-- Statistics -->
-
-                <div class="profile-card mb-4">
-
-                    <h5>Statistics</h5>
-
-                    <hr>
-
-                    <p>Total Gigs : <strong>4</strong></p>
-
-                    <p>Completed Orders : <strong>18</strong></p>
-
-                    <p>Pending Orders : <strong>3</strong></p>
-
-                    <p>Rating : ⭐ 4.9</p>
-
-                </div>
-
-                <!-- Tips -->
-
-                <div class="profile-card">
-
-                    <h5>Seller Tips</h5>
-
-                    <hr>
-
-                    <ul>
-
-                        <li>Upload a professional profile photo.</li>
-
-                        <li>Add portfolio projects.</li>
-
-                        <li>Respond quickly to messages.</li>
-
-                        <li>Keep your gigs updated.</li>
-
-                    </ul>
-
-                </div>
-
+                <p>Edit your existing services.</p>
+              </div>
             </div>
 
+            <div class="col-md-6">
+              <div class="quick-card">
+                <i class="bi bi-bag-check"></i>
+
+                <h5>Orders</h5>
+
+                <p>Track your current orders.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="quick-card">
+                <i class="bi bi-chat-dots"></i>
+
+                <h5>Messages</h5>
+
+                <p>Reply to your clients.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Projects -->
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h4 class="section-title">Recommended Projects</h4>
+
+            <a href="#">View All</a>
+          </div>
+
+          <div class="row g-3 mb-5">
+            <!-- Card -->
+
+            <div class="col-md-6">
+              <div class="project-card">
+                <span class="badge bg-success"> Web Development </span>
+
+                <h5 class="mt-3">MERN Stack Website</h5>
+
+                <p>Looking for an experienced MERN developer.</p>
+
+                <div class="d-flex justify-content-between">
+                  <strong>₹18,000</strong>
+
+                  <button class="btn btn-success btn-sm">Apply</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="project-card">
+                <span class="badge bg-primary"> AI </span>
+
+                <h5 class="mt-3">Chatbot Development</h5>
+
+                <p>Need an AI chatbot for customer support.</p>
+
+                <div class="d-flex justify-content-between">
+                  <strong>₹25,000</strong>
+
+                  <button class="btn btn-success btn-sm">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories -->
+
+          <h4 class="section-title">Popular Categories</h4>
+
+          <div class="category-container mb-5">
+            <button class="btn btn-outline-success">Web Development</button>
+
+            <button class="btn btn-outline-success">Graphic Design</button>
+
+            <button class="btn btn-outline-success">Video Editing</button>
+
+            <button class="btn btn-outline-success">AI Services</button>
+
+            <button class="btn btn-outline-success">Content Writing</button>
+
+            <button class="btn btn-outline-success">Marketing</button>
+          </div>
+
+          <!-- Orders -->
+
+          <h4 class="section-title">Recent Orders</h4>
+
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Project</th>
+
+                  <th>Client</th>
+
+                  <th>Status</th>
+
+                  <th>Amount</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>E-Commerce Website</td>
+
+                  <td>Rahul</td>
+
+                  <td>
+                    <span class="badge bg-warning text-dark">
+                      In Progress
+                    </span>
+                  </td>
+
+                  <td>₹15,000</td>
+                </tr>
+
+                <tr>
+                  <td>Portfolio Website</td>
+
+                  <td>Aman</td>
+
+                  <td>
+                    <span class="badge bg-success"> Completed </span>
+                  </td>
+
+                  <td>₹8,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
+        <!-- RIGHT SIDEBAR -->
+
+        <div class="col-lg-4">
+          <!-- Profile Progress -->
+
+          <div class="profile-card mb-4">
+            <h5>Profile Completion</h5>
+
+            <h2>80%</h2>
+
+            <div class="progress mb-3">
+              <div class="progress-bar bg-success" style="width: 80%"></div>
+            </div>
+
+            <button class="btn btn-success w-100">Complete Profile</button>
+          </div>
+
+          <!-- Statistics -->
+
+          <div class="profile-card mb-4">
+            <h5>Statistics</h5>
+
+            <hr />
+
+            <p>Total Gigs : <strong>4</strong></p>
+
+            <p>Completed Orders : <strong>18</strong></p>
+
+            <p>Pending Orders : <strong>3</strong></p>
+
+            <p>Rating : ⭐ 4.9</p>
+          </div>
+
+          <!-- Tips -->
+
+          <div class="profile-card">
+            <h5>Seller Tips</h5>
+
+            <hr />
+
+            <ul>
+              <li>Upload a professional profile photo.</li>
+
+              <li>Add portfolio projects.</li>
+
+              <li>Respond quickly to messages.</li>
+
+              <li>Keep your gigs updated.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
 
     <footer class="footer">
-
-        <div class="container text-center">
-
-            © 2026 ProLancer. All Rights Reserved.
-
-        </div>
-
+      <div class="container text-center">
+        © 2026 ProLancer. All Rights Reserved.
+      </div>
     </footer>
 
     <!-- Bootstrap JS -->
@@ -465,7 +353,5 @@
     <!-- JS -->
 
     <script src="10_seller_dashboard.js"></script>
-
-</body>
-
+  </body>
 </html>
