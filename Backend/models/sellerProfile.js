@@ -48,7 +48,7 @@ const sellerProfileSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("SellerProfile", sellerProfileSchema);
