@@ -24,12 +24,12 @@ app.use("/api/seller", sellerRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
-    res.send("Welcome to ProLancer Backend 🚀");
+  res.send("Welcome to ProLancer Backend 🚀");
 });
 
 // Start Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`Server Running on Port ${PORT}`);
+  console.log(`Server Running on Port ${PORT}`);
 });
