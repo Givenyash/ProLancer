@@ -2,16 +2,12 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// ============================
 // Register User
-// ============================
-
 const registerUser = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
     // Check Empty Fields
-
     if (!name || !email || !password || !role) {
       return res.status(400).json({
         message: "All fields are required",
@@ -19,7 +15,6 @@ const registerUser = async (req, res) => {
     }
 
     // Check Existing User
-
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -29,11 +24,9 @@ const registerUser = async (req, res) => {
     }
 
     // Encrypt Password
-
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create User
-
     const user = await User.create({
       name,
       email,
@@ -55,9 +48,7 @@ const registerUser = async (req, res) => {
 
     res.status(201).json({
       success: true,
-
       message: "Registration Successful",
-
       token,
 
       user: {
@@ -70,16 +61,12 @@ const registerUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-
       message: error.message,
     });
   }
 };
 
-// ============================
 // Login User
-// ============================
-
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;

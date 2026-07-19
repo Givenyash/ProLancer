@@ -2,7 +2,6 @@ const SellerProfile = require("../models/SellerProfile");
 
 const createSellerProfile = async (req, res) => {
   try {
-
     const {
       userId,
       fullName,
@@ -15,7 +14,7 @@ const createSellerProfile = async (req, res) => {
       bio,
     } = req.user.id;
 
-    if (
+    if(
       !userId ||
       !fullName ||
       !profession ||
@@ -47,14 +46,12 @@ const createSellerProfile = async (req, res) => {
       message: "Seller Profile Created Successfully",
       profile,
     });
-
-  } catch (error) {
-
+  }
+  catch (error){
     res.status(500).json({
       success: false,
       message: error.message,
     });
-
   }
 };
 
