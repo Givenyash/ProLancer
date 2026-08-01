@@ -1,14 +1,18 @@
 window.onload = function () {
-  let greeting = document.getElementById("greetingText");
-  let hour = new Date().getHours();
-  if (hour < 12){
-    greeting.innerHTML = "Good Morning ☀️, Yash";
-  }
-  else if (hour < 17){
-    greeting.innerHTML = "Good Afternoon 🌤️, Yash";
-  }
-  else{
-    greeting.innerHTML = "Good Evening 🌙, Yash";
+  const sellerName = localStorage.getItem("userName") || "Seller";
+
+  document.getElementById("sellerName").innerText = sellerName;
+
+  const greeting = document.getElementById("greetingText");
+
+  const hour = new Date().getHours();
+
+  if (hour < 12) {
+    greeting.innerHTML = `Good Morning ☀️, ${sellerName}`;
+  } else if (hour < 17) {
+    greeting.innerHTML = `Good Afternoon 🌤️, ${sellerName}`;
+  } else {
+    greeting.innerHTML = `Good Evening 🌙, ${sellerName}`;
   }
 };
 
@@ -44,10 +48,7 @@ $(document).ready(function () {
 
   // Create Gig Button
   $("#createGig").click(function () {
-    alert("Create Gig Page Coming Soon!");
-
-    // Future
-    // window.location.href = "11_create_gig.html";
+    window.location.href = "13_create_gig.html";
   });
 
   // Apply Buttons
@@ -64,7 +65,7 @@ $(document).ready(function () {
 
   // Complete Profile Button
   $(".profile-card .btn-success").click(function () {
-    alert("Redirecting to Complete Profile Page...");
+    window.location.href = "9_create_seller_profile.html";
   });
 
   // Navbar Links
@@ -81,7 +82,7 @@ $(document).ready(function () {
 
 let welcomeCard = document.querySelector(".welcome-card");
 
-welcomeCard.addEventListener("click", function(){
+welcomeCard.addEventListener("click", function () {
   welcomeCard.style.background = "#eefcf5";
 
   setTimeout(function () {
