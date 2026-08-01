@@ -24,7 +24,6 @@ async function loginUser(e) {
     }
 
     try {
-
         const response = await fetch("http://localhost:5000/api/users/login", {
 
             method: "POST",
@@ -45,9 +44,9 @@ async function loginUser(e) {
         console.log(data);
 
         if (data.success) {
-
-            // We'll store everything here in the next step
-
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+            window.location.href = "10_seller_dashboard.html";
         }
 
         else {
