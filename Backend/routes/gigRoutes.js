@@ -23,7 +23,7 @@ router.get("/", getAllGigs);
 router.get("/my", verifyToken, getMyGigs);
 
 // Single Gig
-router.get("/:id", verifyToken, getSingleGig);
+router.get("/:id", getSingleGig);
 
 // Update
 router.put("/:id", verifyToken, updateGig);
