@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Gig | ProLancer</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="13_create_gig.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+        <div class="card shadow p-4">
+
+            <h2 class="text-center mb-4">
+                Create New Gig
+            </h2>
+
+            <div id="message"></div>
+
+            <form id="gigForm">
+
+                <div class="mb-3">
+                    <label class="form-label">Gig Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        class="form-control"
+                        placeholder="I will build a MERN Website"
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+
+                    <select
+                        id="category"
+                        class="form-select"
+                    >
+                        <option value="">Select Category</option>
+                        <option>Web Development</option>
+                        <option>Graphic Design</option>
+                        <option>Video Editing</option>
+                        <option>Content Writing</option>
+                        <option>AI Services</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+
+                    <textarea
+                        id="description"
+                        rows="5"
+                        class="form-control"
+                        placeholder="Describe your service..."
+                    ></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price (₹)</label>
+
+                    <input
+                        type="number"
+                        id="price"
+                        class="form-control"
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">
+                        Delivery Time
+                    </label>
+
+                    <select
+                        id="deliveryTime"
+                        class="form-select"
+                    >
+                        <option value="">Select Days</option>
+                        <option>1 Day</option>
+                        <option>2 Days</option>
+                        <option>3 Days</option>
+                        <option>5 Days</option>
+                        <option>7 Days</option>
+                        <option>10 Days</option>
+                    </select>
+                </div>
+
+                <button
+                    class="btn btn-success w-100"
+                    type="submit"
+                >
+                    Create Gig
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<script src="13_create_gig.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+body{
+    background:#f8f9fa;
+}
+
+.card{
+    max-width:700px;
+    margin:auto;
+    border:none;
+    border-radius:12px;
+}
+
+h2{
+    font-weight:bold;
+}
+
+textarea{
+    resize:none;
+}
+
+button{
+    padding:12px;
+}

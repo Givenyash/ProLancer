@@ -82,7 +82,166 @@ const getAllGigs = async (req, res) => {
 
 };
 
+// Get My Gigs
+const getMyGigs = async (req, res) => {
+
+    try {
+
+        const gigs = await Gig.find({
+            sellerId: req.user.id
+        });
+
+        res.json({
+            success: true,
+            gigs
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
+};
+
+//Update Gigs
+const updateGig = async (req, res) => {
+
+    try {
+
+        const gig = await Gig.findById(req.params.id);
+
+        if (!gig) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "Gig Not Found"
+
+            });
+
+        }
+
+        if (gig.sellerId.toString() !== req.user.id) {
+
+            return res.status(403).json({
+
+                success: false,
+
+                message: "Unauthorized"
+
+            });
+
+        }
+
+        const updatedGig = await Gig.findByIdAndUpdate(
+
+            req.params.id,
+
+            req.body,
+
+            {
+                new: true
+            }
+
+        );
+
+        res.json({
+
+            success: true,
+
+            message: "Gig Updated",
+
+            updatedGig
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
+};
+
+// Delete Gigs
+const deleteGig = async (req, res) => {
+
+    try {
+
+        const gig = await Gig.findById(req.params.id);
+
+        if (!gig) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "Gig Not Found"
+
+            });
+
+        }
+
+        if (gig.sellerId.toString() !== req.user.id) {
+
+            return res.status(403).json({
+
+                success: false,
+
+                message: "Unauthorized"
+
+            });
+
+        }
+
+        await Gig.findByIdAndDelete(req.params.id);
+
+        res.json({
+
+            success: true,
+
+            message: "Gig Deleted"
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
+};
+
 module.exports = {
     createGig,
-    getAllGigs
+    getAllGigs,
+    getMyGigs,
+    updateGig,
+    deleteGig
 };

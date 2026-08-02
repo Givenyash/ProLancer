@@ -46,7 +46,16 @@ async function loginUser(e) {
         if (data.success) {
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", JSON.stringify(data.user));
-            window.location.href = "10_seller_dashboard.html";
+
+            localStorage.setItem("userId", data.user._id);
+            localStorage.setItem("userName", data.user.name);
+            localStorage.setItem("role", data.user.role);
+
+            if (data.user.role === "seller") {
+                window.location.href = "10_seller_dashboard.html";
+            } else {
+                window.location.href = "12_client_dashboard.html";
+            }
         }
 
         else {
