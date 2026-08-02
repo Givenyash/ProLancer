@@ -7,6 +7,7 @@
 
 body{
     background:#F8FAFC;
+    padding-bottom:40px;
 }
 
 .navbar{
@@ -47,7 +48,7 @@ body{
 
 .container{
     max-width:850px;
-    margin:70px auto;
+    margin:70px auto 0;
     background:white;
     padding:50px;
     border-radius:15px;
@@ -99,9 +100,10 @@ body{
 
 .buttons{
     width:850px;
-    margin:auto;
+    margin:40px auto 60px auto;
     display:flex;
     justify-content:space-between;
+    align-items:center;
 }
 .back-btn{
     padding:14px 28px;
