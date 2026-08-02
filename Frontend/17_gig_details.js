@@ -77,8 +77,60 @@ async function loadGig() {
 
 }
 
-function hireSeller() {
+async function hireSeller() {
 
-    alert("Hiring Feature Coming Soon!");
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+
+        alert("Please Login First");
+
+        window.location.href = "4_sign_in.html";
+
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch(
+
+            "http://localhost:5000/api/orders",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json",
+
+                    Authorization: `Bearer ${token}`
+
+                },
+
+                body: JSON.stringify({
+
+                    gigId
+
+                })
+
+            }
+
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        alert("Server Error");
+
+    }
 
 }

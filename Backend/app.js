@@ -5,6 +5,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const sellerRoutes = require("./routes/sellerRoutes");
 const gigRoutes = require("./routes/gigRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 // Load Environment Variables
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/seller", sellerRoutes);
 app.use("/api/gigs", gigRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Test Route
 app.get("/", (req, res) => {

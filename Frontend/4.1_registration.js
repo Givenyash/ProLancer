@@ -83,7 +83,7 @@ async function registerUser(e) {
         if (role === "seller") {
           window.location.href = "6_profile_overview.html";
         } else {
-          window.location.href = "10_create_client_profile.html";
+          window.location.href = "11_create_client_profile.html";
         }
       }, 1500);
       
