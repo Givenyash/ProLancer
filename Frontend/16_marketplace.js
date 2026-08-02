@@ -16,6 +16,45 @@ async function loadGigs() {
 
             allGigs = data.gigs;
 
+            // Check if category came from Landing Page
+            const category = localStorage.getItem("category");
+
+            if (category) {
+
+                allGigs = allGigs.filter(
+
+                    gig => gig.category === category
+
+                );
+
+                localStorage.removeItem("category");
+
+            }
+
+            const keyword = localStorage.getItem("searchKeyword");
+
+            if (keyword) {
+
+                const search = keyword.toLowerCase();
+
+                allGigs = allGigs.filter(gig =>
+
+                    gig.title.toLowerCase().includes(search) ||
+
+                    gig.category.toLowerCase().includes(search) ||
+
+                    gig.description.toLowerCase().includes(search) ||
+
+                    gig.sellerId.name.toLowerCase().includes(search) ||
+
+                    gig.sellerId.email.toLowerCase().includes(search)
+
+                );
+
+                localStorage.removeItem("searchKeyword");
+
+            }
+
             displayGigs(allGigs);
 
         }
@@ -139,10 +178,26 @@ function searchGig() {
 
         gig.title.toLowerCase().includes(keyword) ||
 
-        gig.category.toLowerCase().includes(keyword)
+        gig.category.toLowerCase().includes(keyword) ||
+
+        gig.description.toLowerCase().includes(keyword) ||
+
+        gig.sellerId.name.toLowerCase().includes(keyword) ||
+
+        gig.sellerId.email.toLowerCase().includes(keyword)
 
     );
 
     displayGigs(filtered);
 
 }
+
+document.getElementById("searchGig").addEventListener("keypress", function(event) {
+
+    if (event.key === "Enter") {
+
+        searchGig();
+
+    }
+
+});

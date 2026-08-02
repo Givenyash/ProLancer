@@ -24,6 +24,7 @@
             id="search"
             class="form-control"
             placeholder="Search gigs..."
+            onkeyup="searchGig()"
           />
         </div>
 
@@ -42,16 +43,6 @@
             <option>AI Services</option>
           </select>
         </div>
-      </div>
-
-      <div class="mb-4">
-        <input
-          type="text"
-          id="searchGig"
-          class="form-control"
-          placeholder="Search gigs..."
-          onkeyup="searchGig()"
-        />
       </div>
 
       <div class="row" id="gigContainer"></div>

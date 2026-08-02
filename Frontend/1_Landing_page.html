@@ -1,196 +1,218 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🚀 ProLancer</title>
 
     <!--Fevicon icon for logo emoji-->
     <!-- <link rel="icon" href="image_landing_page/rocket_image_icon.jpg" type="image/png"> -->
 
     <!--External css-->
-    <link rel="stylesheet" href="2_landing_page.css">
+    <link rel="stylesheet" href="2_landing_page.css" />
 
     <!--Font Awesom icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-rocket"></i>
-            ProLancer
-        </div>
+      <div class="logo">
+        <i class="fa-solid fa-rocket"></i>
+        ProLancer
+      </div>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Find Work</a></li>
-            <li><a href="#">Hire Talent</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+      <ul class="nav-links">
+        <li><a href="1_Landing_page.html">Home</a></li>
+        <li><a href="16_marketplace.html">Find Work</a></li>
+        <li><a href="16_marketplace.html">Hire Talent</a></li>
+        <li><a href="20_about.html">About</a></li>
+      </ul>
 
-        <div class="nav-buttons">
-            <button class="signin-btn" onclick="goToSignIn()">
-                Sign In
-            </button>
-            <button class="join-btn" onclick="goToJoin()">
-                Join Now
-            </button>
-        </div>
+      <div class="nav-buttons">
+        <button class="signin-btn" onclick="goToSignIn()">Sign In</button>
+        <button class="join-btn" onclick="goToJoin()">Join Now</button>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="intro">
-        <div class="intro-content">
-            <h1> Connect With Top Freelancers Worldwide </h1>
-            <p> Hire skilled professionals or start your freelancing journey with ProLancer. </p>
+      <div class="intro-content">
+        <h1>Connect With Top Freelancers Worldwide</h1>
+        <p>
+          Hire skilled professionals or start your freelancing journey with
+          ProLancer.
+        </p>
 
-            <div class="search-box">
-                <div class="search-input">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search for services...">
-                </div>
-                <button> Search </button>
-            </div>
-
-            <div class="popular-tags">
-                <span>Popular:</span>
-                <a href="#">Web Design</a>
-                <a href="#">Logo Design</a>
-                <a href="#">SEO</a>
-                <a href="#">Video Editing</a>
-                <a href="#">WordPress</a>
-            </div>
-
-            <div class="intro-btns">
-                <button class="get-started"> Get Started </button>
-                <button class="learn-more"> Learn More </button>
-            </div>
+        <div class="search-box">
+          <div class="search-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="searchInput" type="text" placeholder="Search for services..." />
+          </div>
+          <button onclick="searchHome()">Search</button>
         </div>
 
+        <div class="popular-tags">
+          <button onclick="searchCategory('Web Development')">
+            Web Development
+          </button>
+
+          <button onclick="searchCategory('Graphic Design')">
+            Graphic Design
+          </button>
+
+          <button onclick="searchCategory('Content Writing')">Content Writing</button>
+
+          <button onclick="searchCategory('Video Editing')">
+            Video Editing
+          </button>
+
+          <button onclick="searchCategory('AI Services')">AI Services</button>
+        </div>
+
+        <div class="intro-btns">
+          <button class="get-started" onclick="goToJoin()">Get Started</button>
+          <button class="learn-more" onclick="goToAbout()">Learn More</button>
+        </div>
+      </div>
     </section>
 
     <!-- Popular Categories -->
     <section class="categories">
-        <h2> Popular Categories </h2>
+      <h2>Popular Categories</h2>
 
-        <div class="category-container">
-            <div class="card">
-                <h3>Website Development</h3>
-                <img src="image_landing_page/web_dev_image_1.jpg" alt="Web Development">
-            </div>
-
-            <div class="card">
-                <h3>Graphic Design</h3>
-                <img src="image_landing_page/graphic_design_image_2.jpg" alt="Graphic Design">
-            </div>
-
-            <div class="card">
-                <h3>Content Writing</h3>
-                <img src="image_landing_page/content_writing_1.jpg" alt="Content Writing">
-            </div>
-
-            <div class="card">
-                <h3>Video Editing</h3>
-                <img src="image_landing_page/video_editing_1.jpg" alt="Video Editing">
-            </div>
-
-            <div class="card">
-                <h3>Digital Marketing</h3>
-                <img src="image_landing_page/digital_marketing_image.jpg" alt="Digital Marketing">
-            </div>
+      <div class="category-container">
+        <div class="card">
+          <h3>Web Development</h3>
+          <img
+            src="image_landing_page/web_dev_image_1.jpg"
+            alt="Web Development"
+          />
         </div>
+
+        <div class="card">
+          <h3>Graphic Design</h3>
+          <img
+            src="image_landing_page/graphic_design_image_2.jpg"
+            alt="Graphic Design"
+          />
+        </div>
+
+        <div class="card">
+          <h3>Content Writing</h3>
+          <img
+            src="image_landing_page/content_writing_1.jpg"
+            alt="Content Writing"
+          />
+        </div>
+
+        <div class="card">
+          <h3>Video Editing</h3>
+          <img
+            src="image_landing_page/video_editing_1.jpg"
+            alt="Video Editing"
+          />
+        </div>
+
+        <div class="card">
+          <h3>AI Services</h3>
+          <img
+            src="image_landing_page/digital_marketing_image.jpg"
+            alt="AI Services"
+          />
+        </div>
+      </div>
     </section>
 
     <!--Guide section-->
     <section class="guides">
-        <h2>Guides to Help You Grow</h2>
+      <h2>Guides to Help You Grow</h2>
 
-        <div class="guide-container">
-            <div class="guide-card">
-                <img src="image_landing_page/guide_img_1.jpg" alt="Guide image 1">
-                <p>Start a Side Business</p>
-            </div>
-
-            <div class="guide-card">
-                <img src="image_landing_page/guide_img_2.jpg" alt="Guide image 2">
-                <p>E-Commerce Business Ideas</p>
-            </div>
-
-            <div class="guide-card">
-                <img src="image_landing_page/guide_img_3.jpg" alt="Guide image 3">
-                <p>Build Your Personal Brand</p>
-            </div>
-
-            <div class="guide-card">
-                <img src="image_landing_page/guide_img_4.jpg" alt="Guide image 4">
-                <p>Freelancing Tips for Beginners</p>
-            </div>
+      <div class="guide-container">
+        <div class="guide-card">
+          <img src="image_landing_page/guide_img_1.jpg" alt="Guide image 1" />
+          <p>Start a Side Business</p>
         </div>
 
+        <div class="guide-card">
+          <img src="image_landing_page/guide_img_2.jpg" alt="Guide image 2" />
+          <p>E-Commerce Business Ideas</p>
+        </div>
+
+        <div class="guide-card">
+          <img src="image_landing_page/guide_img_3.jpg" alt="Guide image 3" />
+          <p>Build Your Personal Brand</p>
+        </div>
+
+        <div class="guide-card">
+          <img src="image_landing_page/guide_img_4.jpg" alt="Guide image 4" />
+          <p>Freelancing Tips for Beginners</p>
+        </div>
+      </div>
     </section>
 
     <!-- Footer Section -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Categories</h3>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Categories</h3>
 
-                <a href="#">Web Development</a>
-                <a href="#">Graphic Design</a>
-                <a href="#">Content Writing</a>
-                <a href="#">Digital Marketing</a>
-                <a href="#">Video Editing</a>
-                <a href="#">AI Services</a>
-                <a href="#">Business Consulting</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>For Clients</h3>
-
-                <a href="#">How ProLancer Works</a>
-                <a href="#">Post a Project</a>
-                <a href="#">Browse Freelancers</a>
-                <a href="#">Success Stories</a>
-                <a href="#">Client Guide</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>For Freelancers</h3>
-
-                <a href="#">Become a Freelancer</a>
-                <a href="#">Skill Assessment</a>
-                <a href="#">Skill Tree System</a>
-                <a href="#">Community Hub</a>
-                <a href="#">Events</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Business Solutions</h3>
-
-                <a href="#">ProLancer Pro</a>
-                <a href="#">Project Management</a>
-                <a href="#">Talent Sourcing</a>
-                <a href="#">Enterprise Hiring</a>
-                <a href="#">Analytics Dashboard</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-
-                <a href="#">About Us</a>
-                <a href="#">Help Center</a>
-                <a href="#">Trust & Safety</a>
-                <a href="#">Careers</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-            </div>
+          <a href="#">Web Development</a>
+          <a href="#">Graphic Design</a>
+          <a href="#">Content Writing</a>
+          <a href="#">Digital Marketing</a>
+          <a href="#">Video Editing</a>
+          <a href="#">AI Services</a>
+          <a href="#">Business Consulting</a>
         </div>
+
+        <div class="footer-column">
+          <h3>For Clients</h3>
+
+          <a href="#">How ProLancer Works</a>
+          <a href="#">Post a Project</a>
+          <a href="#">Browse Freelancers</a>
+          <a href="#">Success Stories</a>
+          <a href="#">Client Guide</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>For Freelancers</h3>
+
+          <a href="#">Become a Freelancer</a>
+          <a href="#">Skill Assessment</a>
+          <a href="#">Skill Tree System</a>
+          <a href="#">Community Hub</a>
+          <a href="#">Events</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Business Solutions</h3>
+
+          <a href="#">ProLancer Pro</a>
+          <a href="#">Project Management</a>
+          <a href="#">Talent Sourcing</a>
+          <a href="#">Enterprise Hiring</a>
+          <a href="#">Analytics Dashboard</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Company</h3>
+
+          <a href="#">About Us</a>
+          <a href="#">Help Center</a>
+          <a href="#">Trust & Safety</a>
+          <a href="#">Careers</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
     </footer>
 
     <script src="3_landing_page.js"></script>
-
-</body>
-
+  </body>
 </html>
