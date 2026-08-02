@@ -33,6 +33,17 @@ async function loadGigs() {
 
         table.innerHTML = "";
 
+        if (data.gigs.length === 0) {
+            table.innerHTML = `
+               <tr>
+                  <td colspan="5" class="text-center">
+                     No Gigs Created Yet
+                  </td>
+              </tr> `;
+
+            return;
+        }
+
         data.gigs.forEach(gig => {
 
             table.innerHTML += `

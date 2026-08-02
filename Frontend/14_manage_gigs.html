@@ -1,40 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Manage Gigs | ProLancer</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
+  <body>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <a
+            href="10_seller_dashboard.html"
+            class="btn btn-outline-secondary mb-3"
+          >
+            ← Dashboard
+          </a>
 
-<body>
-
-<div class="container mt-5">
-
-    <div class="d-flex justify-content-between align-items-center mb-4">
-
-        <h2>My Gigs</h2>
+          <h2>My Gigs</h2>
+        </div>
 
         <a href="13_create_gig.html" class="btn btn-success">
-
-            + Create New Gig
-
+          + Create New Gig
         </a>
+      </div>
 
-    </div>
-
-    <table class="table table-bordered table-hover">
-
+      <table class="table table-bordered table-hover">
         <thead class="table-success">
-
-        <tr>
-
+          <tr>
             <th>Title</th>
 
             <th>Category</th>
@@ -44,21 +44,13 @@
             <th>Delivery</th>
 
             <th>Actions</th>
-
-        </tr>
-
+          </tr>
         </thead>
 
-        <tbody id="gigTable">
+        <tbody id="gigTable"></tbody>
+      </table>
+    </div>
 
-        </tbody>
-
-    </table>
-
-</div>
-
-<script src="14_manage_gigs.js"></script>
-
-</body>
-
+    <script src="14_manage_gigs.js"></script>
+  </body>
 </html>

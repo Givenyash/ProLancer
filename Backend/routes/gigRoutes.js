@@ -6,6 +6,7 @@ const {
     createGig,
     getAllGigs,
     getMyGigs,
+    getSingleGig,
     updateGig,
     deleteGig
 } = require("../controllers/gigController");
@@ -20,6 +21,9 @@ router.get("/", getAllGigs);
 
 // Seller
 router.get("/my", verifyToken, getMyGigs);
+
+// Single Gig
+router.get("/:id", verifyToken, getSingleGig);
 
 // Update
 router.put("/:id", verifyToken, updateGig);

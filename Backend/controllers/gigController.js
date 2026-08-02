@@ -112,6 +112,52 @@ const getMyGigs = async (req, res) => {
 
 };
 
+// =============================
+// Get Single Gig
+// =============================
+
+const getSingleGig = async (req, res) => {
+
+    try {
+
+        const gig = await Gig.findById(req.params.id);
+
+        if (!gig) {
+
+            return res.status(404).json({
+                success: false,
+                message: "Gig Not Found"
+            });
+
+        }
+
+        if (gig.sellerId.toString() !== req.user.id) {
+
+            return res.status(403).json({
+                success: false,
+                message: "Unauthorized"
+            });
+
+        }
+
+        res.json({
+            success: true,
+            gig
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+
 //Update Gigs
 const updateGig = async (req, res) => {
 
@@ -242,6 +288,7 @@ module.exports = {
     createGig,
     getAllGigs,
     getMyGigs,
+    getSingleGig,
     updateGig,
     deleteGig
 };

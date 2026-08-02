@@ -30,7 +30,7 @@ const gigSchema = new mongoose.Schema(
     },
 
     deliveryTime: {
-        type: Number,
+        type: String,
         required: true
     }
 

@@ -31,6 +31,7 @@
                         id="title"
                         class="form-control"
                         placeholder="I will build a MERN Website"
+                        required
                     >
                 </div>
 
@@ -40,6 +41,7 @@
                     <select
                         id="category"
                         class="form-select"
+                        required
                     >
                         <option value="">Select Category</option>
                         <option>Web Development</option>
@@ -58,6 +60,7 @@
                         rows="5"
                         class="form-control"
                         placeholder="Describe your service..."
+                        required
                     ></textarea>
                 </div>
 
@@ -68,6 +71,8 @@
                         type="number"
                         id="price"
                         class="form-control"
+                        min="1"
+                        required
                     >
                 </div>
 
@@ -79,6 +84,7 @@
                     <select
                         id="deliveryTime"
                         class="form-select"
+                        required
                     >
                         <option value="">Select Days</option>
                         <option>1 Day</option>
