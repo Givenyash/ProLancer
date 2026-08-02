@@ -15,6 +15,26 @@ const createGig = async (req, res) => {
             deliveryTime
         } = req.body;
 
+        const existingGig = await Gig.findOne({
+
+            sellerId: req.user.id,
+
+            title: title.trim()
+
+        });
+
+        if (existingGig) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                message: "You already have a gig with this title."
+
+            });
+
+        }
+
         if (
             !title ||
             !category ||

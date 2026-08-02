@@ -26,6 +26,13 @@ const hireSeller = async (req, res) => {
             });
         }
 
+        if (gig.sellerId.toString() === req.user.id) {
+            return res.status(400).json({
+                success: false,
+                message: "You cannot hire your own gig."
+            });
+        }
+
         const existingOrder = await Order.findOne({
             buyerId: req.user.id,
             gigId: gig._id,
@@ -85,13 +92,13 @@ const getBuyerOrders = async (req, res) => {
         const orders = await Order.find({
             buyerId: req.user.id
         })
-        .populate("gigId", "title price deliveryTime")
-        .populate("sellerId", "name email");
+            .populate("gigId", "title price deliveryTime")
+            .populate("sellerId", "name email");
 
 
         res.json({
 
-            success:true,
+            success: true,
 
             orders
 
@@ -100,13 +107,13 @@ const getBuyerOrders = async (req, res) => {
 
     }
 
-    catch(error){
+    catch (error) {
 
         res.status(500).json({
 
-            success:false,
+            success: false,
 
-            message:error.message
+            message: error.message
 
         });
 
@@ -119,6 +126,40 @@ const getBuyerOrders = async (req, res) => {
 // =============================
 const getSellerOrders = async (req, res) => {
 
+    try {
+
+        const orders = await Order.find({
+
+            sellerId: req.user.id
+
+        })
+
+            .populate("buyerId", "name email")
+
+            .populate("gigId", "title");
+
+        res.json({
+
+            success: true,
+
+            orders
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
 };
 
 // =============================
@@ -126,11 +167,124 @@ const getSellerOrders = async (req, res) => {
 // =============================
 const updateOrderStatus = async (req, res) => {
 
+    try {
+
+        const order = await Order.findById(req.params.id);
+
+        if (!order) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "Order Not Found"
+
+            });
+
+        }
+
+        if (order.sellerId.toString() !== req.user.id) {
+
+            return res.status(403).json({
+
+                success: false,
+
+                message: "Unauthorized"
+
+            });
+
+        }
+
+        order.status = req.body.status;
+
+        await order.save();
+
+        res.json({
+
+            success: true,
+
+            message: "Status Updated"
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
+};
+
+// =============================
+// Seller Dashboard Statistics
+// =============================
+
+const getSellerStats = async (req, res) => {
+
+    try {
+
+        const totalGigs = await Gig.countDocuments({
+
+            sellerId: req.user.id
+
+        });
+
+        const completedOrders = await Order.countDocuments({
+
+            sellerId: req.user.id,
+
+            status: "Completed"
+
+        });
+
+        const pendingOrders = await Order.countDocuments({
+
+            sellerId: req.user.id,
+
+            status: "Pending"
+
+        });
+
+        res.json({
+
+            success: true,
+
+            totalGigs,
+
+            completedOrders,
+
+            pendingOrders
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
 };
 
 module.exports = {
     hireSeller,
     getBuyerOrders,
     getSellerOrders,
-    updateOrderStatus
+    updateOrderStatus,
+    getSellerStats
 };

@@ -99,7 +99,12 @@
                 </li>
 
                 <li>
-                  <a class="dropdown-item text-danger" href="#">Logout</a>
+                  <a
+                    class="dropdown-item text-danger"
+                    href="#"
+                    onclick="logout()"
+                    >Logout</a
+                  >
                 </li>
               </ul>
             </li>
@@ -149,7 +154,11 @@
             </div>
 
             <div class="col-md-6">
-              <div class="quick-card">
+              <div
+                class="quick-card"
+                id="sellerOrders"
+                onclick="goToSellerOrders()"
+              >
                 <i class="bi bi-bag-check"></i>
 
                 <h5>Orders</h5>
@@ -304,11 +313,20 @@
 
             <hr />
 
-            <p>Total Gigs : <strong>4</strong></p>
+            <p>
+              Total Gigs :
+              <strong id="totalGigs">0</strong>
+            </p>
 
-            <p>Completed Orders : <strong>18</strong></p>
+            <p>
+              Completed Orders :
+              <strong id="completedOrders">0</strong>
+            </p>
 
-            <p>Pending Orders : <strong>3</strong></p>
+            <p>
+              Pending Orders :
+              <strong id="pendingOrders">0</strong>
+            </p>
 
             <p>Rating : ⭐ 4.9</p>
           </div>

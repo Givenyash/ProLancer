@@ -1,8 +1,16 @@
+const token = localStorage.getItem("token");
+
+if (!token) {
+
+    alert("Please Login First");
+
+    window.location.href = "4_sign_in.html";
+
+}
+
 window.onload = function () {
   const sellerName = localStorage.getItem("userName") || "Seller";
-
   document.getElementById("sellerName").innerText = sellerName;
-
   const greeting = document.getElementById("greetingText");
 
   const hour = new Date().getHours();
@@ -79,6 +87,10 @@ function goToManageGig() {
   window.location.href = "14_manage_gigs.html";
 }
 
+function goToSellerOrders() {
+    window.location.href = "19_seller_orders.html";
+}
+
 // DOM Manipulation
 // Change Welcome Card Background Slightly on Click
 
@@ -131,3 +143,76 @@ rows.forEach(function (row) {
     row.style.cursor = "pointer";
   });
 });
+
+loadStatistics();
+
+async function loadStatistics() {
+
+    try {
+
+        const token = localStorage.getItem("token");
+
+        // Load Seller Gigs
+        const gigResponse = await fetch(
+            "http://localhost:5000/api/gigs/my",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        const gigData = await gigResponse.json();
+
+        // Load Seller Orders
+        const orderResponse = await fetch(
+            "http://localhost:5000/api/orders/seller",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        const orderData = await orderResponse.json();
+
+        if (gigData.success) {
+
+            document.getElementById("totalGigs").innerText =
+                gigData.gigs.length;
+
+        }
+
+        if (orderData.success) {
+
+            const pending = orderData.orders.filter(
+                order => order.status === "Pending"
+            ).length;
+
+            const completed = orderData.orders.filter(
+                order => order.status === "Completed"
+            ).length;
+
+            document.getElementById("pendingOrders").innerText =
+                pending;
+
+            document.getElementById("completedOrders").innerText =
+                completed;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+function logout() {
+    localStorage.clear();
+    alert("Logged Out Successfully");
+    window.location.href = "4_sign_in.html";
+}

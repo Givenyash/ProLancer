@@ -6,7 +6,8 @@ const {
     hireSeller,
     getBuyerOrders,
     getSellerOrders,
-    updateOrderStatus
+    updateOrderStatus,
+    getSellerStats
 } = require("../controllers/orderController");
 
 const { verifyToken } = require("../middleware/authMiddleware");
@@ -22,5 +23,7 @@ router.get("/seller", verifyToken, getSellerOrders);
 
 // Update Status
 router.put("/:id", verifyToken, updateOrderStatus);
+// seller stats
+router.get("/seller/stats", verifyToken, getSellerStats);
 
 module.exports = router;

@@ -127,3 +127,22 @@ function viewGig(id) {
     window.location.href = "17_gig_details.html";
 
 }
+
+function searchGig() {
+
+    const keyword = document
+        .getElementById("searchGig")
+        .value
+        .toLowerCase();
+
+    const filtered = allGigs.filter(gig =>
+
+        gig.title.toLowerCase().includes(keyword) ||
+
+        gig.category.toLowerCase().includes(keyword)
+
+    );
+
+    displayGigs(filtered);
+
+}
