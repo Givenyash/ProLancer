@@ -46,11 +46,6 @@ $(document).ready(function () {
       }
     });
 
-  // Create Gig Button
-  $("#createGig").click(function () {
-    window.location.href = "13_create_gig.html";
-  });
-
   // Apply Buttons
   $(".project-card button").click(function () {
     let projectName = $(this).closest(".project-card").find("h5").text();
@@ -75,9 +70,16 @@ $(document).ready(function () {
     alert(page + " Page Coming Soon!");
   });
 });
+// Create Gig Button
+function goToCreateGig() {
+  window.location.href = "13_create_gig.html";
+}
+// Manage Gig button
+function goToManageGig() {
+  window.location.href = "14_manage_gigs.html";
+}
 
 // DOM Manipulation
-
 // Change Welcome Card Background Slightly on Click
 
 let welcomeCard = document.querySelector(".welcome-card");
