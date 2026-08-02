@@ -214,3 +214,61 @@ body {
 .category-card:hover h3 {
     color: #1dbf73;
 }
+
+.seller-badge{
+
+    display:inline-block;
+
+    background:#FFD700;
+
+    color:#111;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin:10px 0;
+
+}
+
+/* Dark Mode */
+
+.dark-btn{
+    padding:10px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#111827;
+    color:white;
+}
+
+.dark{
+    background:#111827;
+    color:white;
+}
+
+.dark .navbar,
+.dark .category-card,
+.dark .card{
+    background:#1f2937;
+    color:white;
+}
+
+.dark .search-box input{
+    background:#374151;
+    color:white;
+    border:1px solid #4b5563;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark p{
+    color:white;
+}

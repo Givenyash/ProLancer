@@ -28,23 +28,56 @@
           />
         </div>
 
-        <div class="col-md-4">
-          <select id="category" class="form-select">
+        <div class="col-md-2">
+          <select id="category" class="form-select" onchange="filterCategory()">
             <option value="">All Categories</option>
 
-            <option>Web Development</option>
+            <option value="Web Development">Web Development</option>
 
-            <option>Graphic Design</option>
+            <option value="Graphic Design">Graphic Design</option>
 
-            <option>Video Editing</option>
+            <option value="Video Editing">Video Editing</option>
 
-            <option>Content Writing</option>
+            <option value="Content Writing">Content Writing</option>
 
-            <option>AI Services</option>
+            <option value="AI Services">AI Services</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <select id="category" class="form-select" onchange="filterCategory()">
+            <option value="">All Categories</option>
+
+            <option value="Web Development">Web Development</option>
+
+            <option value="Graphic Design">Graphic Design</option>
+
+            <option value="Video Editing">Video Editing</option>
+
+            <option value="Content Writing">Content Writing</option>
+
+            <option value="AI Services">AI Services</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <select id="sortBy" class="form-select" onchange="sortGigs()">
+            <option value="">Sort By</option>
+
+            <option value="low">Price : Low to High</option>
+
+            <option value="high">Price : High to Low</option>
+
+            <option value="delivery">Fastest Delivery</option>
+
+            <option value="title">A - Z</option>
           </select>
         </div>
       </div>
 
+      <div class="mb-3">
+        <h5 id="resultCount"></h5>
+      </div>
       <div class="row" id="gigContainer"></div>
     </div>
 

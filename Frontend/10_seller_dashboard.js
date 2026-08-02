@@ -36,6 +36,16 @@ window.onload = function () {
 
   }
 
+  // Restore Theme
+
+  const theme = localStorage.getItem("theme");
+
+  if (theme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+  }
+
 };
 
 // jQuery Starts
@@ -85,12 +95,6 @@ $(document).ready(function () {
     let category = $(this).text();
     alert("Showing " + category + " Projects");
   });
-
-  // Complete Profile Button
-  document.querySelector(".profile-card .btn-success")
-      .addEventListener("click", function () {
-      window.location.href = "9_create_seller_profile.html";
-    });
 
   // Navbar Links
   document.querySelectorAll(".nav-link").forEach(link => {
@@ -164,19 +168,6 @@ console.log("Current URL : " + window.location.href);
 let notificationCount = 3;
 console.log("Notifications :", notificationCount);
 
-// Progress Animation
-let progressBar = document.querySelector(".progress-bar");
-
-let width = 0;
-let progressAnimation = setInterval(function () {
-  if (width >= 80) {
-    clearInterval(progressAnimation);
-  } else {
-    width++;
-
-    progressBar.style.width = width + "%";
-  }
-}, 15);
 
 // Table Row Highlight
 
@@ -226,6 +217,14 @@ async function loadStatistics() {
         gigData.gigs.length;
 
     }
+    // ---------------- Profile Completion ----------------
+
+    let percent = 40;
+
+    // Seller created at least one gig
+    if (gigData.gigs.length > 0) {
+      percent += 30;
+    }
 
     if (orderData.success) {
 
@@ -242,6 +241,18 @@ async function loadStatistics() {
 
       document.getElementById("completedOrders").innerText =
         completed;
+
+      // Seller completed at least one order
+      if (completed > 0) {
+        percent += 30;
+      }
+
+      // Update UI
+      document.getElementById("profilePercent").innerText =
+        percent + "%";
+
+      document.getElementById("profileProgress").style.width =
+        percent + "%";
 
     }
 
@@ -267,4 +278,24 @@ function showNotifications() {
 
 function goToMessages() {
   alert("Messaging module coming soon.");
+}
+
+// ---------------- DARK MODE ----------------
+
+function toggleTheme() {
+
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+
+    localStorage.setItem("theme", "dark");
+
+  }
+
+  else {
+
+    localStorage.setItem("theme", "light");
+
+  }
+
 }

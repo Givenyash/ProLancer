@@ -55,6 +55,18 @@ async function loadGigs() {
 
             }
 
+            const sellerId = localStorage.getItem("sellerId");
+
+            if (sellerId) {
+
+                allGigs = allGigs.filter(
+                    gig => gig.sellerId._id === sellerId
+                );
+
+                localStorage.removeItem("sellerId");
+
+            }
+
             displayGigs(allGigs);
 
         }
@@ -72,6 +84,21 @@ async function loadGigs() {
 function displayGigs(gigs) {
 
     const container = document.getElementById("gigContainer");
+    const result = document.getElementById("resultCount");
+
+    if (gigs.length === 0) {
+
+        result.innerHTML = "No Results Found";
+
+    } else if (gigs.length === 1) {
+
+        result.innerHTML = "Showing 1 Result";
+
+    } else {
+
+        result.innerHTML = `Showing ${gigs.length} Results`;
+
+    }
 
     container.innerHTML = "";
 
@@ -163,6 +190,19 @@ function viewGig(id) {
 
     localStorage.setItem("gigId", id);
 
+    let recent = JSON.parse(localStorage.getItem("recentGigs")) || [];
+
+    // Remove if already exists
+    recent = recent.filter(gigId => gigId !== id);
+
+    // Add latest at beginning
+    recent.unshift(id);
+
+    // Keep only last 5
+    recent = recent.slice(0, 5);
+
+    localStorage.setItem("recentGigs", JSON.stringify(recent));
+
     window.location.href = "17_gig_details.html";
 
 }
@@ -192,7 +232,7 @@ function searchGig() {
 
 }
 
-document.getElementById("searchGig").addEventListener("keypress", function(event) {
+document.getElementById("searchGig").addEventListener("keypress", function (event) {
 
     if (event.key === "Enter") {
 
@@ -201,3 +241,59 @@ document.getElementById("searchGig").addEventListener("keypress", function(event
     }
 
 });
+
+function filterCategory() {
+
+    const category = document.getElementById("category").value;
+
+    if (category === "") {
+
+        displayGigs(allGigs);
+
+        return;
+
+    }
+
+    const filtered = allGigs.filter(
+
+        gig => gig.category === category
+
+    );
+
+    displayGigs(filtered);
+
+}
+
+function sortGigs() {
+
+    const sort = document.getElementById("sortBy").value;
+
+    let sorted = [...allGigs];
+
+    if (sort === "low") {
+
+        sorted.sort((a, b) => a.price - b.price);
+
+    }
+
+    else if (sort === "high") {
+
+        sorted.sort((a, b) => b.price - a.price);
+
+    }
+
+    else if (sort === "delivery") {
+
+        sorted.sort((a, b) => a.deliveryTime - b.deliveryTime);
+
+    }
+
+    else if (sort === "title") {
+
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
+
+    }
+
+    displayGigs(sorted);
+
+}
