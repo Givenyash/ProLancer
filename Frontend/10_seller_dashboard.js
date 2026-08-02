@@ -2,26 +2,40 @@ const token = localStorage.getItem("token");
 
 if (!token) {
 
-    alert("Please Login First");
+  alert("Please Login First");
 
-    window.location.href = "4_sign_in.html";
+  window.location.href = "4_sign_in.html";
 
 }
 
 window.onload = function () {
+
   const sellerName = localStorage.getItem("userName") || "Seller";
-  document.getElementById("sellerName").innerText = sellerName;
+
+  document.getElementById("navbarUsername").innerText = sellerName;
+
   const greeting = document.getElementById("greetingText");
 
   const hour = new Date().getHours();
 
   if (hour < 12) {
+
     greeting.innerHTML = `Good Morning ☀️, ${sellerName}`;
-  } else if (hour < 17) {
-    greeting.innerHTML = `Good Afternoon 🌤️, ${sellerName}`;
-  } else {
-    greeting.innerHTML = `Good Evening 🌙, ${sellerName}`;
+
   }
+
+  else if (hour < 17) {
+
+    greeting.innerHTML = `Good Afternoon 🌤️, ${sellerName}`;
+
+  }
+
+  else {
+
+    greeting.innerHTML = `Good Evening 🌙, ${sellerName}`;
+
+  }
+
 };
 
 // jQuery Starts
@@ -40,19 +54,25 @@ $(document).ready(function () {
   );
 
   // Search Button
-  $(".btn-success")
-    .first()
-    .click(function (e) {
-      e.preventDefault();
+  $(".search-form").submit(function (e) {
 
-      let searchText = $(".search-input").val().trim();
+    e.preventDefault();
 
-      if (searchText == "") {
-        alert("Please enter something to search.");
-      } else {
-        alert("Searching for : " + searchText);
-      }
-    });
+    const keyword = $(".search-input").val().trim();
+
+    if (keyword === "") {
+
+      alert("Please enter something.");
+
+      return;
+
+    }
+
+    localStorage.setItem("searchKeyword", keyword);
+
+    window.location.href = "16_marketplace.html";
+
+  });
 
   // Apply Buttons
   $(".project-card button").click(function () {
@@ -67,17 +87,41 @@ $(document).ready(function () {
   });
 
   // Complete Profile Button
-  $(".profile-card .btn-success").click(function () {
-    window.location.href = "9_create_seller_profile.html";
-  });
+  document.querySelector(".profile-card .btn-success")
+      .addEventListener("click", function () {
+      window.location.href = "9_create_seller_profile.html";
+    });
 
   // Navbar Links
-  $(".nav-link").click(function (e) {
-    e.preventDefault();
-    let page = $(this).text();
-    alert(page + " Page Coming Soon!");
+  document.querySelectorAll(".nav-link").forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+      const text = this.innerText.trim();
+
+      if (text === "Explore") {
+
+        window.location.href = "16_marketplace.html";
+
+      }
+
+      else if (text === "Projects") {
+
+        window.location.href = "19_seller_orders.html";
+
+      }
+
+      else if (text === "Messages") {
+
+        alert("Messaging feature will be added in Phase 7");
+
+      }
+
+    });
+
   });
 });
+
 // Create Gig Button
 function goToCreateGig() {
   window.location.href = "13_create_gig.html";
@@ -88,7 +132,7 @@ function goToManageGig() {
 }
 
 function goToSellerOrders() {
-    window.location.href = "19_seller_orders.html";
+  window.location.href = "19_seller_orders.html";
 }
 
 // DOM Manipulation
@@ -148,71 +192,79 @@ loadStatistics();
 
 async function loadStatistics() {
 
-    try {
+  try {
 
-        const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
-        // Load Seller Gigs
-        const gigResponse = await fetch(
-            "http://localhost:5000/api/gigs/my",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        );
-
-        const gigData = await gigResponse.json();
-
-        // Load Seller Orders
-        const orderResponse = await fetch(
-            "http://localhost:5000/api/orders/seller",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        );
-
-        const orderData = await orderResponse.json();
-
-        if (gigData.success) {
-
-            document.getElementById("totalGigs").innerText =
-                gigData.gigs.length;
-
+    // Load Seller Gigs
+    const gigResponse = await fetch(
+      "http://localhost:5000/api/gigs/my",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
         }
+      }
+    );
 
-        if (orderData.success) {
+    const gigData = await gigResponse.json();
 
-            const pending = orderData.orders.filter(
-                order => order.status === "Pending"
-            ).length;
-
-            const completed = orderData.orders.filter(
-                order => order.status === "Completed"
-            ).length;
-
-            document.getElementById("pendingOrders").innerText =
-                pending;
-
-            document.getElementById("completedOrders").innerText =
-                completed;
-
+    // Load Seller Orders
+    const orderResponse = await fetch(
+      "http://localhost:5000/api/orders/seller",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
         }
+      }
+    );
+
+    const orderData = await orderResponse.json();
+
+    if (gigData.success) {
+
+      document.getElementById("totalGigs").innerText =
+        gigData.gigs.length;
 
     }
 
-    catch (error) {
+    if (orderData.success) {
 
-        console.log(error);
+      const pending = orderData.orders.filter(
+        order => order.status === "Pending"
+      ).length;
+
+      const completed = orderData.orders.filter(
+        order => order.status === "Completed"
+      ).length;
+
+      document.getElementById("pendingOrders").innerText =
+        pending;
+
+      document.getElementById("completedOrders").innerText =
+        completed;
 
     }
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+  }
 
 }
 
 function logout() {
-    localStorage.clear();
-    alert("Logged Out Successfully");
-    window.location.href = "4_sign_in.html";
+  localStorage.clear();
+  alert("Logged Out Successfully");
+  window.location.href = "4_sign_in.html";
+}
+
+function showNotifications() {
+  alert("No new notifications.");
+}
+
+function goToMessages() {
+  alert("Messaging module coming soon.");
 }

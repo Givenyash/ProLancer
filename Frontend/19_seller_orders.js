@@ -31,31 +31,97 @@ async function loadOrders() {
 
     div.innerHTML = "";
 
+    if (data.orders.length === 0) {
+
+        div.innerHTML = `
+
+        <div class="col-12">
+
+            <div class="card shadow-sm p-5 text-center">
+
+                <h3 class="mb-3">📦 No Orders Yet</h3>
+
+                <p class="text-muted">
+
+                    Buyers haven't purchased your gigs yet.
+
+                </p>
+
+                <a href="13_create_gig.html"
+                   class="btn btn-success mt-3">
+
+                    Create New Gig
+
+                </a>
+
+            </div>
+
+        </div>
+
+    `;
+
+        return;
+
+    }
+
     data.orders.forEach(order => {
 
         div.innerHTML += `
 
-<div class="card p-3 mb-3">
+<div class="col-md-6 mb-4">
 
-<h4>${order.gigId.title}</h4>
+    <div class="card shadow-sm h-100">
 
-<p>Buyer : ${order.buyerId.name}</p>
+        <div class="card-body">
 
-<p>Email : ${order.buyerId.email}</p>
+            <h4 class="mb-3">${order.gigId.title}</h4>
 
-<p>₹${order.price}</p>
+            <p>
+                <strong>Buyer:</strong>
+                ${order.buyerId.name}
+            </p>
 
-<select onchange="changeStatus('${order._id}',this.value)" class="form-select">
+            <p>
+                <strong>Email:</strong>
+                ${order.buyerId.email}
+            </p>
 
-<option ${order.status == "Pending" ? "selected" : ""}>Pending</option>
+            <p>
+                <strong>Price:</strong>
+                ₹${order.price}
+            </p>
 
-<option ${order.status == "In Progress" ? "selected" : ""}>In Progress</option>
+            <label class="fw-bold mb-2">
 
-<option ${order.status == "Completed" ? "selected" : ""}>Completed</option>
+                Order Status
 
-<option ${order.status == "Cancelled" ? "selected" : ""}>Cancelled</option>
+            </label>
 
-</select>
+            <select
+                onchange="changeStatus('${order._id}',this.value)"
+                class="form-select">
+
+                <option ${order.status == "Pending" ? "selected" : ""}>
+                    Pending
+                </option>
+
+                <option ${order.status == "In Progress" ? "selected" : ""}>
+                    In Progress
+                </option>
+
+                <option ${order.status == "Completed" ? "selected" : ""}>
+                    Completed
+                </option>
+
+                <option ${order.status == "Cancelled" ? "selected" : ""}>
+                    Cancelled
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
 
 </div>
 

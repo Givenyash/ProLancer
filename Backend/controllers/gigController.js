@@ -293,11 +293,65 @@ const deleteGig = async (req, res) => {
 
 };
 
+// =============================
+// Top Featured Freelancers
+// =============================
+const getFeaturedFreelancers = async (req, res) => {
+
+    try {
+
+        const featured = await Gig.aggregate([
+
+            {
+                $group: {
+                    _id: "$sellerId",
+                    totalGigs: { $sum: 1 },
+                    category: { $first: "$category" },
+                    price: { $first: "$price" }
+                }
+            },
+
+            {
+                $sort: {
+                    totalGigs: -1
+                }
+            },
+
+            {
+                $limit: 3
+            }
+
+        ]);
+
+        await Gig.populate(featured, {
+            path: "_id",
+            select: "name email"
+        });
+
+        res.json({
+            success: true,
+            freelancers: featured
+        });
+
+    }
+
+    catch(error){
+
+        res.status(500).json({
+            success:false,
+            message:error.message
+        });
+
+    }
+
+};
+
 module.exports = {
     createGig,
     getAllGigs,
     getMyGigs,
     getSingleGig,
     updateGig,
-    deleteGig
+    deleteGig,
+    getFeaturedFreelancers
 };

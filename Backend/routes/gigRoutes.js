@@ -8,7 +8,8 @@ const {
     getMyGigs,
     getSingleGig,
     updateGig,
-    deleteGig
+    deleteGig,
+    getFeaturedFreelancers
 } = require("../controllers/gigController");
 
 const { verifyToken } = require("../middleware/authMiddleware");
@@ -18,6 +19,9 @@ router.post("/", verifyToken, createGig);
 
 // Public
 router.get("/", getAllGigs);
+
+//Get Featured Freelancers
+router.get("/featured", getFeaturedFreelancers);
 
 // Seller
 router.get("/my", verifyToken, getMyGigs);

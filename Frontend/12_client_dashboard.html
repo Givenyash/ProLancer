@@ -22,9 +22,14 @@
       </div>
 
       <div class="search-box">
-        <input type="text" placeholder="Search freelancers..." />
+        <input
+          type="text"
+          placeholder="Search freelancers..."
+          id="searchInput"
+          onkeypress="if (event.key === 'Enter') searchFreelancer();"
+        />
 
-        <button>
+        <button onclick="searchFreelancer()">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
@@ -70,22 +75,22 @@
       <h2>Browse Categories</h2>
 
       <div class="category-grid">
-        <div class="category-card">
+        <div class="category-card" onclick="goCategory('Web Development')">
           💻
           <h3>Web Development</h3>
         </div>
 
-        <div class="category-card">
+        <div class="category-card" onclick="goCategory('Content Writing')">
           📱
-          <h3>App Development</h3>
+          <h3>Content Writing</h3>
         </div>
 
-        <div class="category-card">
+        <div class="category-card" onclick="goCategory('Graphic Design')">
           🎨
           <h3>Graphic Design</h3>
         </div>
 
-        <div class="category-card">
+        <div class="category-card" onclick="goCategory('AI Services')">
           🤖
           <h3>AI Services</h3>
         </div>
@@ -97,43 +102,7 @@
     <section class="freelancers">
       <h2>Featured Freelancers</h2>
 
-      <div class="freelancer-grid">
-        <div class="card">
-          <i class="fa-solid fa-user"></i>
-
-          <h3>Rahul Sharma</h3>
-
-          <p>Full Stack Developer</p>
-
-          <h4>₹800 / Hour</h4>
-
-          <button>View Profile</button>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-user"></i>
-
-          <h3>Priya Singh</h3>
-
-          <p>UI/UX Designer</p>
-
-          <h4>₹600 / Hour</h4>
-
-          <button>View Profile</button>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-user"></i>
-
-          <h3>Aman Verma</h3>
-
-          <p>AI Engineer</p>
-
-          <h4>₹1200 / Hour</h4>
-
-          <button>View Profile</button>
-        </div>
-      </div>
+      <div class="freelancer-grid" id="featuredFreelancers"></div>
     </section>
 
     <script src="12_client_dashboard.js"></script>

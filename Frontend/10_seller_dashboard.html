@@ -68,7 +68,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link position-relative" href="#">
+              <a class="nav-link position-relative" href="#" onclick="showNotifications()">
                 <i class="bi bi-bell fs-5"></i>
                 <span class="notification-dot"></span>
               </a>
@@ -86,13 +86,13 @@
                   class="profile-image"
                 />
 
-                Yash
+                <span id="navbarUsername">User</span>
               </a>
 
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="9_create_seller_profile.html">Profile</a></li>
 
-                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="11_edit_profile.html"">Settings</a></li>
 
                 <li>
                   <hr class="dropdown-divider" />
@@ -168,7 +168,7 @@
             </div>
 
             <div class="col-md-6">
-              <div class="quick-card">
+              <div class="quick-card" onclick="goToMessages()">
                 <i class="bi bi-chat-dots"></i>
 
                 <h5>Messages</h5>
